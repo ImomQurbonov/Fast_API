@@ -18,8 +18,11 @@ router = APIRouter()
 
 
 @router.get('/category', response_model=List[CategoryScheme])
-async def get_categories(keyword: str, token: dict = Depends(verify_token),
-                         session: AsyncSession = Depends(get_async_session)):
+async def get_categories(
+        keyword: str,
+        token: dict = Depends(verify_token),
+        session: AsyncSession = Depends(get_async_session)
+):
     if token is None:
         raise HTTPException(status_code=403, detail='Forbidden')
     query = select(category).where(category.c.category == keyword)
@@ -136,3 +139,12 @@ async def product_list(
 app.include_router(register_router)
 app.include_router(router)
 app.include_router(mobile_router)
+
+
+
+
+
+
+
+
+

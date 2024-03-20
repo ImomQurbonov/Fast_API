@@ -31,3 +31,18 @@ class ProductListSchema(BaseModel):
     price: float
     quantity: int
     sold_quantity: int
+
+
+class RequsetDataSchema(BaseModel):
+    min: float | None
+    max: float | None
+    size: list | None
+    category: str | None
+    brands: list | None
+
+
+
+
+
+
+
